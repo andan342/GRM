@@ -21,9 +21,9 @@ GRM is a Java Swing application, that runs on top of SSDM, mainly utilizing its 
 
 ## PREPARING INPUT FILES
 
-Internally, GRM uses it's own lisp-based format for representing grammars.
+Internally, GRM uses its own lisp-based format for representing grammars.
 
-The converters from Bison/Yacc `.y` files, and from [Extended Bachus-Naur Form](http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form) in version that disallows spaces in symbol names. Most standard specifications, e.g. [ones from W3C](http://www.w3.org/TR/sparql11-query/#sparqlGrammar).
+Included are the converters from Bison/Yacc `.y` files, and from [Extended Bachus-Naur Form](http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form) in version that disallows spaces in symbol names. Most standard specifications, e.g. [ones from W3C](http://www.w3.org/TR/sparql11-query/#sparqlGrammar).
 
 - use `yy2grm grammar` to convert file `.\grammar.y` to `.\grammar.lsp`, where Lisp symbol `grammar` will be defined.
 
