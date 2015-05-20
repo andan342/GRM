@@ -1,0 +1,1 @@
+%AMOS_HOME%\bin\amos2.exe %AMOS_HOME%\bin\ssdm.dmp -L lsp/grm-reader.lsp -l "(with-directory (concat (getenv \"AMOS_HOME\") \"/lsp/grm/yy2grm\") (load \"yy2grm.lsp\"))" -l "(with-directory (concat (getenv \"AMOS_HOME\") \"/lsp/grm/ebnf2grm\") (load \"ebnf2grm.lsp\"))" -o "save 'grmGUI.dmp'; quit;"
