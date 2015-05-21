@@ -8,8 +8,6 @@ create function Get_ssdm_version() -> Number
 
 (defvar _as_strings_ t)
 
-(load (concat (getenv "AMOS_HOME") "/lsp/grm/ascend-bm.lsp"))
-
 (defstruct exported-grammar start-line end-line g (rule-cnt 0) comments)
 
 (defun preread-grammar (filename)
@@ -21,12 +19,10 @@ create function Get_ssdm_version() -> Number
 	(do () (nil t) 
 	  (setq line (read-line str))	
 	  (incf line-cnt)
-;	  (print line) ;DEBUG
 	  (if (eq line '*eof*) (return nil)
 	    (with-textstream line-str line
 			     (do () (nil t)
 			       (setq token (read-token line-str))
-;			       (print (list 'token= token 'state= state 'par-cnt= par-cnt)) ;DEBUG
 			       (if (or (eq token '*eof*)
 				       (and (not (eq state :read-rules)) (stringp token) (string= token ";"))) (return nil)
 				 (selectq state
@@ -110,7 +106,6 @@ create function Preread_grammar(Charstring filename) -> Bag of (Charstring symbo
     (setq g (eval `(grammar-from-johnsons ,(mksymbol symbol))))
     (setf (exported-grammar-g eg) g)   
     (setq _as_strings_ (stringp (rule-lhs (car (grammar-rules g)))))
-;    (print (list '_as_strings_= _as_strings_)) ;DEBUG
 ;    (grammar-init-sht g)
     (grammar-init0 g nil)
     ))
@@ -437,7 +432,6 @@ create function Grammar_build_ct(Charstring gid) -> Bag of (Integer, Vector of I
 		  (dolist (group (key-rec-ct-groups krec))
 		    (dolist (sid (cdr group))
 		      (push (car group) (aref row (if (< sid 0) active-t-cnt (- sid (grammar-active-nt-cnt g)))))))
-;		  (print (list 'groups= (key-rec-ct-groups krec) 'row= row)) ;DEBUG
 		  (dotimes (i (length row)) ; convert row of action lists to row of NIL, single actions or vectors of actions (on conflicts)
 		    (cond ((cdr (aref row i))
 			   (setf (aref row i) (listtoarray (aref row i))))

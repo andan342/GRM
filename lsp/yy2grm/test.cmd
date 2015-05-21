@@ -1,0 +1,1 @@
+amos2 %AMOS_HOME%/bin/amos2.dmp yy2grm.lsp -l "(yy2grm \"test2.y\" \"test2-grammar.lsp\" \"test2-grammar\")" -l "(quit)"

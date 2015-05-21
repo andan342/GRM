@@ -12,11 +12,9 @@ GRM is a Java Swing application, that runs on top of SSDM, mainly utilizing its 
 
 2. Set `AMOS_HOME` environment variable to the root directory of the unpacked SSDM archive
 
-3. Check out GRM project into `%AMOS_HOME%'/applications/grmgui`
+3. Run `install` for both *Java* and *Amos Image* compilation
 
-4. Run `install` for both *Java* and *Amos Image* compilation
-
-5. To run, use `grmgui` in applications/grmgui
+4. To run, use `grmgui` in applications/grmgui
 
 
 ## PREPARING INPUT FILES
